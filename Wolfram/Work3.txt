@@ -1,0 +1,6 @@
+sol=DSolve[{y'[x]+y[x]*Tan[x]==Sin[2x],y[0]==2},y[x],x]
+Plot[y[x]/.sol[[1]],{x,-16,16}]
+s=DSolve[{a*y''[x]+b*y'[x]+c*y[x]==0,y[0]==0,y'[0]==1},y[x],x]
+Manipulate[Plot[First[DSolve[{a*y''[x]+b*y'[x]+c*y[x]==0,y[0]==0,y'[0]==1},y[x],x]],{z,-6,6}],{a,0,10},{b,0,10}]
+NDSolve[{x''[t]+ux'[t]+x[t]-lx^3[t]==f*Cos[wt]},x[t],t,{u,0,0}],{l,-1,-1},{f,10,10},{w,1.5,1.5}]
+sol=DSolve[x'[t]==x[t],x[t],t]

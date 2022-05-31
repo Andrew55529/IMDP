@@ -1,0 +1,14 @@
+eq=x''[t]+\[Omega]^2*x[t]+\[CurlyEpsilon]*b*x[t]^3
+x[t_]=x0[t]+\[CurlyEpsilon]*x1[t]
+eq
+Expand[eq]
+eq0=Coefficient[Expand[eq],\[CurlyEpsilon],0]
+eq1=Coefficient[Expand[eq],\[CurlyEpsilon],1]
+s0=DSolve[{eq0==0,x0[0]==a,x0'[0]==0},x0,t]
+eq1/.s0[[1]]
+name_tematic_stat_dict.get('balykina').values()
+x[t]/.s0[[1]]/.s1[[1]]
+xa[t_]=x[t]/.s0[1]/.s1[1]
+a=b=\[Omega]=1;
+Plot[Evaluate[x*a[t]/.\[Epsilon]->{0,0.1,0.5,0.9}],{t,0,6\[Pi]}]
+nds=NDSolve[{x''[t]+\[Omega]^2*x[t]+0.1*b*x[t]==0,x[t]==a,x'[t]==0},x,{t,0,6\[Pi]}]
