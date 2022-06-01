@@ -1,6 +1,14 @@
-F = @(x,y)(x.^2+y.^2).^2
-fsurf(F,[-pi,pi,-pi,pi])
-fx = @(u,v)u.*cos(v);
-fy = @(u,v)u.*sin(v);
-fz = @(u,v)u.^4;
-fsurf(fx,fy,fz, [-pi,pi,-pi,pi])
+clear
+t = -5:0.01:5;
+a = 1/4;
+b = 1/16;
+m = 8;
+n = 8;
+k = 1;
+x = cos(t)-a.*cos(m.*t)+b.*sin(n.*t);
+y = sin(t)+a.*sin(m.*t)+b.*cos(n.*t);
+for k = 1:1:10
+    plot(x./k,y./k)
+    hold on
+end
+hold off
