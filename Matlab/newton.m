@@ -20,6 +20,7 @@ while(i<maxcount)
     if abs(f(x1))<eps break; end;
     i=i+1;
 end
-P=plot(x,f(x1)+yh*(x-x1),':',x1,f(x1),'*',x1,0,'*',x1,f(x1),'o')
+plot(x,f(x1)+yh*(x-x1),':',x1,f(x1),'*',x1,0,'*',x1,f(x1),'o')
+disp("Найденный корень " + x1)
 hold off
 
