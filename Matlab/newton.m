@@ -11,16 +11,25 @@ ylim([min(y),max(y)]);
 z = ginput(1);
 x1=z(1);
 i=0;
+flag = 0
 while(i<maxcount)
     yh=(f(x1+h)-f(x1))/h;
     x1=x1-f(x1)/yh;
     L=line([x1,x1],[0,f(x1)]);
     set(L,'LineStyle','-.')
     delete(L)
+    if x2 < a | x2 > b 
+        flag = 1
+        break; 
+    end;
     if abs(f(x1))<eps break; end;
     i=i+1;
 end
-plot(x,f(x1)+yh*(x-x1),':',x1,f(x1),'*',x1,0,'*',x1,f(x1),'o')
-disp("Найденный корень " + x1)
+if flag == 0
+    plot(x,f(x1)+yh*(x-x1),':',x1,f(x1),'*',x1,0,'*',x1,f(x1),'o')
+    disp("Найденный корень " + x1)
+else disp("Плохая точка");
+end;
+
 hold off
 
