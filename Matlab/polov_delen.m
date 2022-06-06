@@ -11,8 +11,9 @@ z = ginput(2);
 z1=z(1,1), z2=z(2,1); z=(z2-z1)/2+z1;
 f1 = f(z1); f2=f(z2); y=f(z);
 P = plot(z1,0,'*',z2,0,'*',z,0,'o');
-if f1*f2>0 
-    'Error'
+flag = 0;
+if f1*f2>0 'Плохие точки'
+end;
 end
 i=0;
 while(i<maxcount)
@@ -20,6 +21,7 @@ while(i<maxcount)
     y=f(z);
     P=plot(z1,0,'*',z2,0,'*',z,0,'o');
     if abs(f(z))<eps
+        flag = 1;
         break;
     end
     if y*f1<0
@@ -29,4 +31,10 @@ while(i<maxcount)
     end
     i=i+1;
 end
+
+if flag == 1
+    plot(z1,0,'*',z2,0,'*',z,0,'o');
+    disp("Найденный корень " + z);
+end;
+
 hold off
